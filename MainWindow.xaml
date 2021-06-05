@@ -5,13 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VINparser"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350." Width="380" WindowStyle="ToolWindow" ResizeMode="NoResize">
+        Title="Парсер Vin" Height="350." Width="380" WindowStyle="ToolWindow" ResizeMode="NoResize">
     <Grid>
-        <Button Content="Расшифровать" Margin="90,0,90,10" VerticalAlignment="Bottom" Height="26" FontSize="18" RenderTransformOrigin="1.06,1.446" Grid.Row="2"/>
-        <TextBlock Margin="23,0,23,47" TextWrapping="Wrap" Text="Введите VIN:" Height="22" FontSize="18" VerticalAlignment="Bottom" Grid.Row="1"/>
-        <TextBox Height="32" Margin="23,0,23,10" TextWrapping="Wrap" VerticalAlignment="Bottom" Grid.Row="1"/>
-        <Image HorizontalAlignment="Left" Height="122" Margin="90,20,0,0" VerticalAlignment="Top" Width="194" Source="Resources/car_3.jpg" IsHitTestVisible="False" Stretch="Uniform" StretchDirection="Both"/>
-        <TextBlock x:Name="Error_block" HorizontalAlignment="Left" Margin="23,15,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="328"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="321*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Расшифровать" Margin="29,0,90,10" VerticalAlignment="Bottom" Height="26" FontSize="18" RenderTransformOrigin="1.06,1.446" Grid.Row="2" Grid.Column="1" Click="Button_Click"/>
+        <TextBlock Margin="44,0,49,45" TextWrapping="Wrap" Text="Введите VIN:" Height="22" FontSize="18" VerticalAlignment="Bottom" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="InputLine"  Height="40" Margin="44,0,44,0" TextWrapping="Wrap" VerticalAlignment="Bottom" Grid.Row="1" MaxLength="17" MaxLines="1" LostFocus="TextBox_LostFocus" GotFocus="TextBox_GotFocus" Text="XXXXXXXXXXXXXXXXX" FontSize="26" AutomationProperties.HelpText="Введите VIN код машины" Grid.ColumnSpan="2"/>
+        <Image HorizontalAlignment="Left" Height="122" Margin="29,20,0,0" VerticalAlignment="Top" Width="194" Source="Resources/car_3.jpg" IsHitTestVisible="False" Stretch="Uniform" StretchDirection="Both" Grid.Column="1"/>
+        <TextBlock x:Name="Error_block" HorizontalAlignment="Left" Margin="44,15,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" Grid.ColumnSpan="2" Height="16" Foreground="Black"/>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="100"/>
